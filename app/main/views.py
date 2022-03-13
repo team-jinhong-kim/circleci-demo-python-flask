@@ -8,3 +8,5 @@ def index():
 @main.route('/shutdown')
 def server_shutdown():
     shutdown = request.environ.get('werkzeug.server.shutdown')
+    shutdown()
+    return 'Shutting down...'
