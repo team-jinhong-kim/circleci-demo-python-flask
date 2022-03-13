@@ -71,4 +71,4 @@ class SeleniumTestCase(unittest.TestCase):
 
         # clicking button again then compare to confirm they are not equal
         button.click()
-        self.assertEqual(text,element.text)
+        self.assertNotEqual(text,element.text)
