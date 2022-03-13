@@ -27,7 +27,7 @@ workflows:
 jobs:
   build:
     docker:
-      - image: cimg/python:3.6.2
+      - image: cimg/python:3.10.2
         auth:
           username: jakethedogwoof
           password: $DOCKERHUB_PASSWORD
@@ -49,6 +49,9 @@ jobs:
       - run:
           name: Start Selenium
           command: |
+            sudo apt update
+            sudo apt install default-jre
+            java -version
             java -jar selenium-server-standalone-3.5.3.jar -log test-reports/selenium.log
           background: true
       - restore_cache:
