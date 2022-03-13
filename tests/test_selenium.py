@@ -60,13 +60,13 @@ class SeleniumTestCase(unittest.TestCase):
     def test_button(self):
         # finding the button using ID
         self.client.get('http://localhost:5000/')
-        button = driver.find_element_by_id('create-random-string')
+        button = self.client.find_element_by_id('create-random-string')
 
         # clicking on the button
         button.click()
 
         # Check randomfield
-        element = driver.find_element_by_id('randomfield')
+        element = self.client.find_element_by_id('randomfield')
         text = element.text
 
         # clicking button again then compare to confirm they are not equal
