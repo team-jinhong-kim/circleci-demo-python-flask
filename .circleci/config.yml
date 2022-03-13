@@ -27,10 +27,7 @@ workflows:
 jobs:
   build:
     docker:
-      - image: cimg/python:3.10.2
-        auth:
-          username: jakethedogwoof
-          password: $DOCKERHUB_PASSWORD
+      - image: circleci/python:3.6.2-stretch-browsers
         environment:
           FLASK_CONFIG: testing
 #          TEST_DATABASE_URL: postgresql://ubuntu@localhost/circle_test?sslmode=disable
@@ -47,12 +44,6 @@ jobs:
           command: |
             curl -O http://selenium-release.storage.googleapis.com/3.5/selenium-server-standalone-3.5.3.jar
       - run:
-          name: install java runtime
-          command: |
-            sudo apt update
-            sudo apt install default-jre
-            java -version
-      - run:
           name: Start Selenium
           command: |
             java -jar selenium-server-standalone-3.5.3.jar -log test-reports/selenium.log
@@ -60,15 +51,9 @@ jobs:
       - restore_cache:
           key: deps2-{{ checksum "requirements/dev.txt" }}
       - run:
-          name: Install venv
           command: |
-            sudo apt-get install python3-venv
-            python --version
-            python3 --version
-      - run:
-          command: |
-            python3 -m venv venv_1
-            source venv_1/bin/activate
+            python3 -m venv venv
+            . venv/bin/activate
             pip install -r requirements/dev.txt
       - save_cache:
           key: deps2-{{ checksum "requirements/dev.txt" }}

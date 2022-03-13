@@ -52,7 +52,23 @@ class SeleniumTestCase(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def test_admin_home_page(self):
+    def test_home_page(self):
         # navigate to home page
         self.client.get('http://localhost:5000/')
         self.assertTrue(re.search('Random', self.client.page_source))
+
+    def test_button(self):
+        # finding the button using ID
+        self.client.get('http://localhost:5000/')
+        button = driver.find_element_by_id('create-random-string')
+
+        # clicking on the button
+        button.click()
+
+        # Check randomfield
+        element = driver.find_element_by_id('randomfield')
+        text = element.text
+
+        # clicking button again then compare to confirm they are not equal
+        button.click()
+        self.assertEqual(text,element.text)
