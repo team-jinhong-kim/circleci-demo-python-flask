@@ -35,10 +35,11 @@ def test(coverage=False):
         os.environ['FLASK_COVERAGE'] = '1'
         os.execvp(sys.executable, [sys.executable] + sys.argv)
     import unittest
-    import xmlrunner
+    # import xmlrunner
     tests = unittest.TestLoader().discover('tests')
+    tests.run()
     # run tests with unittest-xml-reporting and output to $CIRCLE_TEST_REPORTS on CircleCI or test-reports locally
-    xmlrunner.XMLTestRunner(output=os.environ.get('CIRCLE_TEST_REPORTS','test-reports')).run(tests)
+    # xmlrunner.XMLTestRunner(output=os.environ.get('CIRCLE_TEST_REPORTS','test-reports')).run(tests)
     if COV:
         COV.stop()
         COV.save()
@@ -62,8 +63,8 @@ def profile(length=25, profile_dir=None):
 
 @manager.command
 def deploy():
-    """Run deployment tasks."""
     print("Run deployment tasks.")
+    """Run deployment tasks."""
 
 
 if __name__ == '__main__':
