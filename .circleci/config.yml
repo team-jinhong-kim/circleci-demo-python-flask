@@ -61,7 +61,7 @@ jobs:
           key: deps2-{{ checksum "requirements/dev.txt" }}
       - run:
           name: Install venv
-          command: apt-get install python3-venv
+          command: sudo apt-get install python3-venv
       - run:
           command: |
             python3 -m venv venv
