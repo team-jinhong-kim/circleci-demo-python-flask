@@ -1,4 +1,4 @@
-test-reports/*
+*.log
 .python-version
 .DS_Store
 tmp/
