@@ -27,7 +27,7 @@ workflows:
 jobs:
   build:
     docker:
-      - image: cimg/python:3.6.4
+      - image: cimg/python
         environment:
           FLASK_CONFIG: testing
 #          TEST_DATABASE_URL: postgresql://ubuntu@localhost/circle_test?sslmode=disable
