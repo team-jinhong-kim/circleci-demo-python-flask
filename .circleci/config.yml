@@ -1,11 +1,5 @@
 version: 2.1
 
-#########
-# Common
-#########
-#orbs:
-#  heroku: circleci/heroku@1.0.1
-
 ############
 # Workflows
 ############
@@ -14,12 +8,6 @@ workflows:
   build-deploy:
     jobs:
       - build
-#      - deploy:
-#          requires:
-#            - build
-#          filters:
-#            branches:
-#              only: master
 
 ##################
 # Job Definitions

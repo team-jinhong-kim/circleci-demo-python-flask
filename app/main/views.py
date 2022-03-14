@@ -3,8 +3,7 @@ from . import main
 
 @main.route('/')
 def index():
-    print("call main.route")
-    return render_template('index.html')
+    return send_from_directory('templates', 'index.html')
 
 @main.route('/shutdown')
 def server_shutdown():
