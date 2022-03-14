@@ -17,7 +17,7 @@ class DevelopmentConfig(Config):
 
 class TestingConfig(Config):
     TESTING = True
-    DEBUG = True
+    # DEBUG = True
     WTF_CSRF_ENABLED = False
 
 

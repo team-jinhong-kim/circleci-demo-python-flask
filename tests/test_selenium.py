@@ -39,7 +39,6 @@ class SeleniumTestCase(unittest.TestCase):
     def tearDownClass(cls):
         if cls.client:
             # stop the flask server and the browser
-            print("shutdown")
             cls.client.get('http://localhost:5000/shutdown')
             cls.client.close()
 
