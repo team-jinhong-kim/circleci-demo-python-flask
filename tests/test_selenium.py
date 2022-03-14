@@ -55,7 +55,8 @@ class SeleniumTestCase(unittest.TestCase):
     def test_home_page(self):
         # navigate to home page
         self.client.get('http://localhost:5000/')
-        self.assertTrue(re.search('Stranger', self.client.page_source))
+        print(self.client.page_source)
+        self.assertTrue(re.search('Generator', self.client.page_source))
 
 #    def test_button(self):
         # finding the button using ID
