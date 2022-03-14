@@ -56,8 +56,9 @@ jobs:
           command: |
             . venv/bin/activate
             python manage.py runserver
+            background: true
       - run:
-          name: tests
+          name: test via curl
           command: curl 127.0.0.1:5000
 #           python manage.py test
 
