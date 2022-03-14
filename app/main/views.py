@@ -1,4 +1,4 @@
-from flask import redirect, render_template, request
+from flask import redirect, send_from_directory, requestk
 from . import main
 
 @main.route('/')
