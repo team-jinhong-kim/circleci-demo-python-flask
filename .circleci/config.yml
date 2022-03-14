@@ -55,7 +55,8 @@ jobs:
       - run:
           command: |
             . venv/bin/activate
-            python manage.py test
+#            python manage.py test
+            python manage.py production
 
 #  deploy:
 #    executor: heroku/default
