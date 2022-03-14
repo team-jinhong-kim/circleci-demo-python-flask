@@ -1,9 +1,9 @@
 from flask import redirect, render_template, request
 from . import main
 
-@main.route('/', methods=['GET'])
+@main.route('/')
 def index():
-    return "Generator"
+    return render_template('index.html')
 
 @main.route('/shutdown')
 def server_shutdown():
