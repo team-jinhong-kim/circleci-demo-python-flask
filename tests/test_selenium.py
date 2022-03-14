@@ -55,12 +55,13 @@ class SeleniumTestCase(unittest.TestCase):
     def test_home_page(self):
         # navigate to home page
         self.client.get('http://localhost:5000/')
+        print(self.client.page_source)
         self.assertTrue(re.search('Generator', self.client.page_source))
 
     def test_button(self):
         # finding the button using ID
         self.client.get('http://localhost:5000/')
-        print(self.client)
+        print(self.client.page_source)
         button = self.client.find_element_by_id('create-random-string')
 
         # clicking on the button
