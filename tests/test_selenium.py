@@ -28,12 +28,12 @@ class SeleniumTestCase(unittest.TestCase):
             import logging
             logger = logging.getLogger('werkzeug')
             logger.setLevel("ERROR")
-
+            print('logger')
             # start the Flask server in a thread
             threading.Thread(target=cls.app.run).start()
-
+            print('thread')
             # give the server a second to ensure it is up
-            time.sleep(1)
+            time.sleep(5)
 
     @classmethod
     def tearDownClass(cls):
