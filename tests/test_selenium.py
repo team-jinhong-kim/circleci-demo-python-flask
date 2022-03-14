@@ -33,8 +33,7 @@ class SeleniumTestCase(unittest.TestCase):
             threading.Thread(target=cls.app.run).start()
 
             # give the server a second to ensure it is up
-            time.sleep(5)
-            print('sleep')
+            time.sleep(1)
 
     @classmethod
     def tearDownClass(cls):
