@@ -55,19 +55,21 @@ class SeleniumTestCase(unittest.TestCase):
     def test_home_page(cls):
         # navigate to home page
         cls.client.get('http://localhost:5000/')
-        cls.assertTrue(re.search('Generator', cls.client.page_source))
+        cls.assertTrue(re.search('Generator', self.client.page_source))
 
     def test_button(cls):
         # finding the button using ID
-        cls.client.get('http://localhost:5000/')
-        button = cls.client.find_element_by_id('create-random-string')
+        self.client.get('http://localhost:5000/')
+        print(self.client)
+        button = self.client.find_element_by_id('create-random-string')
 
         # clicking on the button
         button.click()
 
         # Check randomfield
-        element = cls.client.find_element_by_id('randomfield')
+        element = self.client.find_element_by_id('randomfield')
         text = element.text
+        print(text)
 
         # clicking button again then compare to confirm they are not equal
         button.click()
