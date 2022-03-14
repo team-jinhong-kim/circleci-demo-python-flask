@@ -52,12 +52,12 @@ class SeleniumTestCase(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def test_home_page(cls):
+    def test_home_page(self):
         # navigate to home page
-        cls.client.get('http://localhost:5000/')
-        cls.assertTrue(re.search('Generator', self.client.page_source))
+        self.client.get('http://localhost:5000/')
+        self.assertTrue(re.search('Generator', self.client.page_source))
 
-    def test_button(cls):
+    def test_button(self):
         # finding the button using ID
         self.client.get('http://localhost:5000/')
         print(self.client)
