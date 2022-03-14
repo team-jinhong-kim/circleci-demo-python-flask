@@ -39,6 +39,7 @@ class SeleniumTestCase(unittest.TestCase):
     def tearDownClass(cls):
         if cls.client:
             # stop the flask server and the browser
+            print("shutdown")
             cls.client.get('http://localhost:5000/shutdown')
             cls.client.close()
 
@@ -55,23 +56,20 @@ class SeleniumTestCase(unittest.TestCase):
     def test_home_page(self):
         # navigate to home page
         self.client.get('http://localhost:5000/')
-        print(self.client.page_source)
         self.assertTrue(re.search('Stranger', self.client.page_source))
 
-    def test_button(self):
+#    def test_button(self):
         # finding the button using ID
-        self.client.get('http://localhost:5000/')
-        # print(self.client.page_source)
-        button = self.client.find_element_by_id('create-random-string')
+#        self.client.get('http://localhost:5000/')
+#        button = self.client.find_element_by_id('create-random-string')
 
         # clicking on the button
-        button.click()
+#        button.click()
 
         # Check randomfield
-        element = self.client.find_element_by_id('randomfield')
-        text = element.text
-        print(text)
+#        element = self.client.find_element_by_id('randomfield')
+#        text = element.text
 
         # clicking button again then compare to confirm they are not equal
-        button.click()
-        self.assertNotEqual(text,element.text)
+#        button.click()
+#        self.assertNotEqual(text,element.text)

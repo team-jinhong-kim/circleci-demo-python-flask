@@ -3,7 +3,7 @@ from . import main
 
 @main.route('/')
 def index():
-    print('call main.route')
+    print("call main.route")
     return render_template('index.html')
 
 @main.route('/shutdown')
