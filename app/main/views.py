@@ -3,7 +3,7 @@ from . import main
 
 @main.route('/', methods=['GET'])
 def index():
-    return render_template("index.html")
+    return "Generator"
 
 @main.route('/shutdown')
 def server_shutdown():
