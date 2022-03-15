@@ -26,7 +26,6 @@ jobs:
     docker:
       - image: circleci/python:3.6.2-stretch-browsers
         environment:
-          FLASK_CONFIG: testing
     steps:
       - checkout
       - run:
