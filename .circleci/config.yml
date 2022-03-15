@@ -58,7 +58,7 @@ jobs:
       - checkout
       - setup_remote_docker:
           docker_layer_caching: false
-            - run:
+      - run:
           name: Build app binary and Docker image
           command: |
             echo 'export PATH=~$PATH:~/.local/bin' >> $BASH_ENV
