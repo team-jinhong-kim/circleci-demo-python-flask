@@ -38,8 +38,6 @@ def test(coverage=False):
     tests = unittest.TestLoader().discover('tests')
     runner = unittest.TextTestRunner()
     runner.run(tests)
-    # run tests with unittest-xml-reporting and output to $CIRCLE_TEST_REPORTS on CircleCI or test-reports locally
-    # xmlrunner.XMLTestRunner(output=os.environ.get('CIRCLE_TEST_REPORTS','test-reports')).run(tests)
     if COV:
         COV.stop()
         COV.save()
