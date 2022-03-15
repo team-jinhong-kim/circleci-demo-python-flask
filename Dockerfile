@@ -12,4 +12,4 @@ RUN python3 -m venv venv
 RUN . venv/bin/activate
 RUN pip install -r requirements/dev.txt
 
-CMD [ "python", "manage.py", "runserver", "--port=8080" ]
+CMD [ "python", "manage.py", "runserver", "--host=0.0.0.0", "--port=8080" ]
