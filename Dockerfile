@@ -6,8 +6,9 @@ ENV APP_HOME /
 WORKDIR $APP_HOME
 COPY . ./
 
-RUN ls -al
+RUN python3 -m venv venv
 RUN . venv/bin/activate
+RUN pip install -r requirements/dev.txt
 
 EXPOSE 5000
 
