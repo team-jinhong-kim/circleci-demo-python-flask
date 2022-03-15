@@ -6,6 +6,7 @@ ENV APP_HOME /
 WORKDIR $APP_HOME
 COPY . ./
 
+RUN ls -al
 RUN . venv/bin/activate
 
 EXPOSE 5000
