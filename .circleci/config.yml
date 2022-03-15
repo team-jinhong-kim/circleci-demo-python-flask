@@ -58,11 +58,6 @@ jobs:
     steps:
       - checkout
       - gcp-cloud-run/init
-      - run:
-          command: |
-            python3 -m venv venv
-            . venv/bin/activate
-            pip install -r requirements/dev.txt
       - gcp-cloud-run/build:
           tag: 'gcr.io/${GOOGLE_PROJECT_ID}/test-${CIRCLE_SHA1}'
       - gcp-cloud-run/deploy:
